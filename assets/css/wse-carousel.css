@@ -1,0 +1,83 @@
+.carousel-wrap {
+    /* Add styles for the individual carousel item */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin-bottom: 20px;
+}
+
+.carousel-sub-title {
+    /* Add styles for the sub-title */
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.carousel-title {
+    /* Add styles for the title */
+    font-size: 24px;
+    color: #000;
+    margin-bottom: 20px;
+}
+
+.carousel-image img {
+    /* Add styles for the image */
+    max-width: 100%;
+    height: auto;
+}
+
+.carousel-buttons {
+    /* Add styles for the buttons container */
+    margin-top: 20px;
+}
+
+.carousel-buttons a {
+    /* Add styles for the buttons */
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #333;
+    color: #fff;
+    text-decoration: none;
+    margin-right: 10px;
+}
+
+.carousel-buttons a:last-child {
+    margin-right: 0;
+}
+
+.carousel-container .slick-slide {
+    margin: 0 10px;
+}
+
+.carousel-container .slick-list {
+    overflow: inherit;
+}
+
+ul.slick-dots button {
+    display: none;
+}
+
+.slick-dots li {
+    height: 5px;
+    width: 100px;
+    margin: 0;
+    position: relative;
+    top: -3.5px;
+    cursor: pointer;
+}
+
+ul.slick-dots {
+    display: flex;
+    justify-content: space-evenly;
+    border-top: 2px solid #ddd;
+    padding: 0;
+}
+
+.slick-dots li.slick-active {
+    background: #000;
+}

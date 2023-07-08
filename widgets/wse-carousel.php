@@ -108,24 +108,16 @@ class Wse_Carousel_Elementor_Widget extends \Elementor\Widget_Base {
                     'label_block' => true,
                 ]
             );        
-            
+        
             $repeater->add_control(
                 'button_one_link',
                 [
                     'label' => esc_html__( 'Link', 'textdomain' ),
-                    'type' => \Elementor\Controls_Manager::URL,
-                    'placeholder' => esc_html__( 'https://your-link.com', 'textdomain' ),
-                    'options' => [ 'url', 'is_external', 'nofollow' ],
-                    'default' => [
-                        'url' => '',
-                        'is_external' => true,
-                        'nofollow' => true,
-                        'custom_attributes' => '',
-                    ],
+                    'type' => \Elementor\Controls_Manager::TEXT,
+                    'default' => esc_html__( '#', 'textdomain' ),
                     'label_block' => true,
-                    // 'separator' => 'after'
                 ]
-            );        
+            );  
         
         $repeater->end_controls_tab();
 
@@ -147,20 +139,13 @@ class Wse_Carousel_Elementor_Widget extends \Elementor\Widget_Base {
                     'label_block' => true,
                 ]
             );        
-            
+        
             $repeater->add_control(
                 'button_two_link',
                 [
                     'label' => esc_html__( 'Link', 'textdomain' ),
-                    'type' => \Elementor\Controls_Manager::URL,
-                    'placeholder' => esc_html__( 'https://your-link.com', 'textdomain' ),
-                    'options' => [ 'url', 'is_external', 'nofollow' ],
-                    'default' => [
-                        'url' => '',
-                        'is_external' => true,
-                        'nofollow' => true,
-                        'custom_attributes' => '',
-                    ],
+                    'type' => \Elementor\Controls_Manager::TEXT,
+                    'default' => esc_html__( '#', 'textdomain' ),
                     'label_block' => true,
                 ]
             );
@@ -221,30 +206,25 @@ class Wse_Carousel_Elementor_Widget extends \Elementor\Widget_Base {
 		$settings = $this->get_settings_for_display();
 
         ?>
-        <div class="carousel-wrap">
-        <?php foreach ( $settings['carousel_list'] as $item ): ?>
-                <h4 class="carousel-sub-title"><?php echo $item['carousel_sub_title']; ?></h4>
-                <h2 class="carousel-title"><?php echo $item['carousel_title']; ?></h2>
-                <div class="carousel-image">
-                    <?php echo \Elementor\Group_Control_Image_Size::get_attachment_image_html( $item, 'carousel_imagesize', 'carousel_image' ); ?>
-                </div>
-                <div class="carousel-buttons">
-                    <?php 
-                    if ( ! empty( $item['button_one_link']['url'] ) ) {
-                        $this->add_link_attributes( 'button_one_link', $item['button_one_link'] );
-                    } 
-                    if ( ! empty( $item['button_two_link']['url'] ) ) {
-                        $this->add_link_attributes( 'button_two_link', $item['button_two_link'] );
-                    } 
-                    ?>
-                    <!-- Button One  -->
-                    <a <?php echo $this->get_render_attribute_string( 'button_one_link' ); ?>>
-                        <?php echo $item['button_one']; ?>
-                    </a>      
-                    <!-- Button One  -->
-                    <a <?php echo $this->get_render_attribute_string( 'button_two_link' ); ?>>
-                        <?php echo $item['button_two']; ?>
-                    </a>                 
+        <div class="carousel-container">
+            <?php foreach ( $settings['carousel_list'] as $item ): ?>
+                
+                <div class="carousel-wrap">
+                    <h4 class="carousel-sub-title"><?php echo $item['carousel_sub_title']; ?></h4>
+                    <h2 class="carousel-title"><?php echo $item['carousel_title']; ?></h2>
+                    <div class="carousel-image">
+                        <?php echo \Elementor\Group_Control_Image_Size::get_attachment_image_html( $item, 'carousel_imagesize', 'carousel_image' ); ?>
+                    </div>
+                    <div class="carousel-buttons">
+                        <!-- Button One  -->  
+                        <a href="<?php echo $item['button_one_link']; ?>">
+                            <?php echo $item['button_one']; ?>
+                        </a>     
+                        <!-- Button Two  -->
+                        <a href="<?php echo $item['button_two_link']; ?>">
+                            <?php echo $item['button_two']; ?>
+                        </a>         
+                    </div>
                 </div>
             <?php endforeach;?>
         </div>
